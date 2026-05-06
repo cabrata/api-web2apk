@@ -1,0 +1,17 @@
+services:
+  web2apk:
+    build: .
+    container_name: web2apk-builder
+    ports:
+      - "3000:3000"
+    volumes:
+      - gradle-cache:/root/.gradle
+      - ./outputs:/app/outputs
+    environment:
+      - PORT=3000
+      - NODE_ENV=production
+    restart: unless-stopped
+
+volumes:
+  gradle-cache:
+    driver: local

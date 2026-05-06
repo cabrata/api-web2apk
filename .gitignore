@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+builds/
+outputs/
+
+# Android/Gradle
+template/app/build/
+template/build/
+template/.gradle/
+*.apk
+*.aab
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.*
+
+# Logs
+*.log
+npm-debug.log*
+
+# Docker
+get-docker.sh

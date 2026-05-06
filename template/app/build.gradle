@@ -1,0 +1,46 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.webapk.app'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId '{{PACKAGE_NAME}}'
+        minSdk 21
+        targetSdk 34
+        versionCode {{VERSION_CODE}}
+        versionName '{{VERSION_NAME}}'
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    signingConfigs {
+        release {
+            storeFile file('/root/debug.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.webkit:webkit:1.8.0'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    implementation 'com.google.android.material:material:1.10.0'
+}
